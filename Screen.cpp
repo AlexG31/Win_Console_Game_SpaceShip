@@ -30,6 +30,15 @@ class Screen{
                     screenmat[i][j] = enemy.shape[i-x][j-y];
                 }
         }
+        int draw_obj(pair<int,int> position,Screen_object_base* obj){
+            int x = position.first;
+            int y = position.second;
+            pair<int,int> EnemyBox = obj->BoxSize;
+            for(int i = x;i<height&&i-x<EnemyBox.first;i++)
+                for(int j = y;j<width&&j-y<EnemyBox.second;j++){
+                    screenmat[i][j] = obj->shape[i-x][j-y];
+                }
+        }
         int draw_test(){
             for(int i = 0;i<height;i++)
                 for(int j = 0;j<width;j++){
@@ -37,6 +46,11 @@ class Screen{
                         screenmat[i][j] = '0'+j/10;
                     }else screenmat[i][j] = '.';
                 }
+        }
+        int fill(char mark = ' '){
+            for(int i = 0;i<height;i++)
+                for(int j = 0;j<width;j++)
+                    screenmat[i][j] = mark;
         }
         int disp(){
             system("cls");
