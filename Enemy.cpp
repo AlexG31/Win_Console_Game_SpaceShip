@@ -1,6 +1,10 @@
-
+#pragma once
 #include"Common.hpp"
 using namespace std;
+//declearation
+class Screen_object_base;
+class Enemy;
+class Spaceship;
 
 #ifndef EnemyClassDEF
 #define EnemyClassDEF

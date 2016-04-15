@@ -6,6 +6,5 @@
 #include"cstdlib"
 #include"cstring"
 #include"ctime"
-#include"unistd.h"
 #include"conio.h"
 #include"Windows.h"

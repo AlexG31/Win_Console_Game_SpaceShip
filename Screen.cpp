@@ -2,7 +2,11 @@
 #include"Enemy.cpp"
 
 using namespace std;
+// declearation
+class Screen;
 
+#ifndef Screen_DEF
+#define Screen_DEF
 class Screen{
     private:
         const int width;
@@ -38,6 +42,7 @@ class Screen{
                 for(int j = y;j<width&&j-y<EnemyBox.second;j++){
                     screenmat[i][j] = obj->shape[i-x][j-y];
                 }
+				return 0;
         }
         int draw_test(){
             for(int i = 0;i<height;i++)
@@ -51,6 +56,7 @@ class Screen{
             for(int i = 0;i<height;i++)
                 for(int j = 0;j<width;j++)
                     screenmat[i][j] = mark;
+			return 0;
         }
         int disp(){
             system("cls");
@@ -60,6 +66,8 @@ class Screen{
                 }
                 printf("\n");
             }
+			return 0;
         }
         
 };
+#endif
