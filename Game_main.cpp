@@ -34,6 +34,7 @@ void escort_game(){
     int xpos(0),xgain(1);
     while(1){
         game->set_enemy_pos(eID,epos);
+        game->refresh();
         game->disp();
         xpos+=xgain;
         if(xpos>=80)xgain = -1;
@@ -48,9 +49,10 @@ void maneuver_game(){
     while(1){
         game->set_mypos(make_pair(30,xpos));
 
-        char ch = getch();
+        char ch = _getch();
         if(ch=='h'||ch=='H'){xpos-=4;}
         else if(ch=='l'||ch=='L')xpos+=4;
+        else if(ch==' ')game->ship_fire();
         if(xpos<=0)xpos = 0;
         else if(xpos>=80)xpos = 80;
     }
@@ -64,7 +66,7 @@ void maneuver_ship(Screen&sc){
         sc.draw_obj(make_pair(20,xpos),&ship);
         sc.disp();
 
-        char ch = getch();
+        char ch = _getch();
         if(ch=='h'||ch=='H'){xpos--;}
         else if(ch=='l'||ch=='L')xpos++;
         if(xpos<=0)xpos = 0;
